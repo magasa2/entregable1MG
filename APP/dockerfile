@@ -9,6 +9,4 @@ RUN mkdir "Homer Simpson"
 
 RUN pip install -p requierements.txt
 
-
 CMD [ "python" , "entregable1.py"]
-
