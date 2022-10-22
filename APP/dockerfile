@@ -1,12 +1,11 @@
 FROM python:3.9.7
+RUN apt-get update
 
-RUN apt get update
-
-COPY python_code/entregable1.py /app
-COPY python_code/requierements.txt /app
+COPY /entregable1.py /app/
+COPY /requierments.txt /app/
 RUN mkdir "Lisa Simpson"
 RUN mkdir "Homer Simpson"
 
-RUN pip install -p requierements.txt
+RUN pip-install -p requierments.txt
 
 CMD [ "python" , "entregable1.py"]
