@@ -11,4 +11,4 @@ RUN mkdir "Homer Simpson"
 RUN pip freeze > requirements.txt
 RUN pip install -r requirements.txt
 
-CMD [ "python" , "entregable1.py"]
+CMD [ "python3" , "entregable1.py"]
