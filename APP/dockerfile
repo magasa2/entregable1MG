@@ -1,8 +1,8 @@
 FROM python:3.9.7
 RUN apt-get update
 
-COPY /entregable1.py /app/
-COPY /requirements.txt /app/
+COPY entregable1.py /app
+COPY requirements.txt /app
 
 
 RUN mkdir "Lisa Simpson"
