@@ -35,7 +35,7 @@ def tiempoPeticion():
     print(imagen)
     time.sleep(10)
 
-    data={"quote":texto,"character":personaje}
+    data={"quote":texto,"character":personaje,"image":imagen}
     if personaje == 'Homer Simpson':
         with open('HOMER/mycsvfile.csv', 'a', newline='') as f: 
             a=csv.DictWriter(f,data.keys())
