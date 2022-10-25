@@ -1,9 +1,8 @@
 FROM python:3.9.7
 RUN apt-get update
 
-COPY entregable1.py /app
 COPY requirements.txt /app
-
+COPY entregable1.py /app
 
 RUN mkdir "Lisa Simpson"
 RUN mkdir "Homer Simpson"
@@ -11,4 +10,4 @@ RUN mkdir "Homer Simpson"
 RUN pip freeze > requirements.txt
 RUN pip install -r requirements.txt
 
-CMD [ "python3" , "entregable1.py"]
+CMD [ "python" , "entregable1.py"]
