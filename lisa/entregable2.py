@@ -60,18 +60,14 @@ def tiempoPeticion():
         print(f'La palabra "great" aparece {cuentaGreat} veces')
         df = pandas.DataFrame(dict1)
         df.to_csv('file.csv')
-        with open('file.csv','a', newline='') as i:
-            for line in dict1:
-                for cell in line:
-                    i.write(cell)
-                i.write('\n')
+
     def crearCarpeta():
         carpeta=os.path.exists(personaje) 
         if carpeta == True:
             with open('file.csv','a', newline='') as g: 
                 a=csv.DictWriter(g,data.keys())
                 a.writerow(data)
-        repe()
+    
         if carpeta == False:
             os.mkdir(personaje)
             ruta=os.path.basename(personaje)
