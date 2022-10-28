@@ -14,6 +14,7 @@ from distutils.file_util import copy_file, move_file
 from genericpath import exists
 from importlib.resources import path
 from itertools import count
+from pickle import APPEND
 from re import X
 from tkinter.filedialog import SaveAs
 from zipapp import create_archive
@@ -50,7 +51,6 @@ def tiempoPeticion():
     time.sleep(10)
     data={"quote":texto,"character":personaje,"image":imagen}
     def repe():
-        
         cuentaThe=texto.count(' the ')
         cuentaGreat=texto.count(' great ')
         theList=[cuentaThe]
@@ -60,13 +60,18 @@ def tiempoPeticion():
         print(f'La palabra "great" aparece {cuentaGreat} veces')
         df = pandas.DataFrame(dict1)
         df.to_csv('file.csv')
+        with open('file.csv','a', newline='') as i:
+            for line in dict1:
+                for cell in line:
+                    i.write(cell)
+                i.write('\n')
     def crearCarpeta():
         carpeta=os.path.exists(personaje) 
         if carpeta == True:
             with open('file.csv','a', newline='') as g: 
                 a=csv.DictWriter(g,data.keys())
                 a.writerow(data)
-        
+        repe()
         if carpeta == False:
             os.mkdir(personaje)
             ruta=os.path.basename(personaje)
