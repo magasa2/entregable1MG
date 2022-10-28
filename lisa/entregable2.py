@@ -50,16 +50,17 @@ def tiempoPeticion():
     time.sleep(10)
     data={"quote":texto,"character":personaje,"image":imagen}
     def repe():
-        cuenta=texto.count(' the ')
-        print(f'La palabra aparece {cuenta} veces')
-    repe()
+        cuentaThe=texto.count(' the ')
+        cuentaGreat=texto.count(' great ')
+        print(f'La palabra "the" aparece {cuentaThe} veces')
+        print(f'La palabra "great" aparece {cuentaGreat} veces')
     def crearCarpeta():
         carpeta=os.path.exists(personaje) 
         if carpeta == True:
             with open('file.csv','a', newline='') as g: 
                 a=csv.DictWriter(g,data.keys())
                 a.writerow(data)
-    
+        
         if carpeta == False:
             os.mkdir(personaje)
             ruta=os.path.basename(personaje)
@@ -67,7 +68,7 @@ def tiempoPeticion():
                 a=csv.DictWriter(h,data.keys())
                 a.writerow(data)
             move_file('file.csv',ruta)   
-    
+        repe()
     crearCarpeta()
 
 tiempoPeticion()
