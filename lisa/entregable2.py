@@ -50,10 +50,16 @@ def tiempoPeticion():
     time.sleep(10)
     data={"quote":texto,"character":personaje,"image":imagen}
     def repe():
+        
         cuentaThe=texto.count(' the ')
         cuentaGreat=texto.count(' great ')
+        theList=[cuentaThe]
+        greatList=[cuentaGreat]
+        dict1:dict={'The':theList, 'Great': greatList}
         print(f'La palabra "the" aparece {cuentaThe} veces')
         print(f'La palabra "great" aparece {cuentaGreat} veces')
+        df = pandas.DataFrame(dict1)
+        df.to_csv('file.csv')
     def crearCarpeta():
         carpeta=os.path.exists(personaje) 
         if carpeta == True:
